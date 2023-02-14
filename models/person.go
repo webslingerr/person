@@ -23,6 +23,10 @@ type Friends struct {
 	PhoneNumber string `json:"phone_number"`
 }
 
+type UserPrimaryKey struct {
+	Id string `json:"id"`
+}
+
 type UpdatePerson struct {
 	Id string `json:"id"`
 	FirstName string `json:"first_name"`
@@ -43,4 +47,9 @@ type CreatePerson struct {
 	CardNumber string `json:"card_number"`
 	Birthday string `json:"birthday"`
 	Profession string `json:"profession"`
+}
+
+type GetListResponse struct {
+	Count int `json:"count"`
+	People []Person `json:"users"`
 }

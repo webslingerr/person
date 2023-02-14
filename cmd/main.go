@@ -3,6 +3,7 @@ package main
 import (
 	"app/config"
 	"app/models"
+	"fmt"
 	"log"
 
 	// "app/storage"
@@ -40,7 +41,7 @@ func main() {
 
 	err = c.CreatePerson(
 		&models.CreatePerson{
-			Id: "546456543467",
+			Id: "34676575447568",
 			FirstName: "Asilbek",
 			LastName: "Hamijonov",
 			Gender: "male",
@@ -61,6 +62,25 @@ func main() {
 		},
 	)
 
+	if err != nil {
+		log.Println(err)
+	}
+
+	person, err := c.GetPersonById(&models.UserPrimaryKey{
+		Id: "32a803b5-3f1c-495e-8ce7-4649e4cbe3b1",
+	})
+	if err != nil {
+		log.Println(err)
+	}
+	fmt.Printf("%+v", person)
+
+	// people, err := c.GetAllPeople()
+	// if err != nil {
+	// 	log.Println(err)
+	// }
+	err = c.DeletePerson(&models.UserPrimaryKey{
+		Id: "c57aa672-902f-44c8-af9d-dfa02f62541a",
+	})
 	if err != nil {
 		log.Println(err)
 	}
